@@ -97,14 +97,12 @@ function createCard(cNum, cTitle, cAuthor, cPages, cReadStatus) {
 }
 
 function removeBook(btn) {
-     console.log(myLibrary);
      myLibrary.forEach((bk) => {
           if (btn.getAttribute('id') == bk.id) {
                myLibrary.splice(myLibrary.indexOf(bk), 1);
                return;
           }
      })
-     console.log(myLibrary);
 }
 
 function book(title, author, pages, readStatus, id) {
