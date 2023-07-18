@@ -1,0 +1,56 @@
+body {
+     color: #f8fafc;
+     background-color: #262626;
+}
+
+.body-container {
+     display: grid;
+     grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+.header {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 1rem;
+
+     background-color: #0a0a0a;
+     padding: 0.5rem 1rem 1rem 1rem;
+}
+
+#add-book {
+     align-self: center;
+}
+
+/* cards content */
+.content {
+     overflow: auto;
+     display: grid;
+     grid-template-rows: repeat(2, 1fr);
+     grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+     justify-content: center;
+     align-items: center;
+     gap: 1rem;
+     padding: 1rem;
+}
+
+.card {
+     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.993);
+}
+
+.card:hover {
+     transition: 0.5s;
+     transform: scale(1.01);
+     
+}
+
+.card-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.card-header h4 {
+     margin: 0;
+}
