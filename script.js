@@ -59,7 +59,7 @@ function createCard(cNum, cTitle, cAuthor, cPages, cReadStatus) {
 
      let remove = document.createElement('button');
      remove.setAttribute('type', 'button');
-     remove.setAttribute('class', 'btn btn-outline-danger btn-sm');
+     remove.setAttribute('class', 'btn btn-outline-dark btn-sm');
      remove.setAttribute('id', `${cNum}`);
      remove.textContent = 'Remove';
 
@@ -77,7 +77,17 @@ function createCard(cNum, cTitle, cAuthor, cPages, cReadStatus) {
 
      let bookStatus = document.createElement('p');
      bookStatus.setAttribute('class', 'card-text text-end');
-     bookStatus.textContent = cReadStatus;
+     if (cReadStatus === true) {
+          bookStatus.textContent = 'Read';
+          card.style.border = '1px solid #022c22'
+          header.style.backgroundColor = '#6ee7b7'
+          body.style.backgroundColor = '#a7f3d0'
+     } else {
+          bookStatus.textContent = 'Unread';
+          card.style.border = '1px solid #450a0a'
+          header.style.backgroundColor = '#f87171'
+          body.style.backgroundColor = '#fca5a5'
+     }
 
      //appending elements to card
      card.append(header);
