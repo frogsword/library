@@ -78,15 +78,14 @@ function createCard(cNum, cTitle, cAuthor, cPages, cReadStatus) {
      let bookStatus = document.createElement('p');
      bookStatus.setAttribute('class', 'card-text text-end');
      if (cReadStatus === true) {
-          bookStatus.textContent = 'Read';
-          card.style.border = '1px solid #022c22'
-          header.style.backgroundColor = '#6ee7b7'
-          body.style.backgroundColor = '#a7f3d0'
+          bookStatus.textContent = 'Finished';
+          header.style.backgroundColor = '#6ee7b7';
+          body.style.backgroundColor = '#a7f3d0';
+
      } else {
-          bookStatus.textContent = 'Unread';
-          card.style.border = '1px solid #450a0a'
-          header.style.backgroundColor = '#f87171'
-          body.style.backgroundColor = '#fca5a5'
+          bookStatus.textContent = 'Not Finished';
+          header.style.backgroundColor = '#fca5a5';
+          body.style.backgroundColor = '#fecaca';
      }
 
      //appending elements to card
@@ -99,7 +98,25 @@ function createCard(cNum, cTitle, cAuthor, cPages, cReadStatus) {
      body.append(bookStatus);
      mainContent.append(card);
 
-
+     card.addEventListener('click', function(cReadStatus) {
+          myLibrary.forEach((bk) => {
+               if (card.getAttribute('id') == bk.id) {
+                    if (myLibrary[myLibrary.indexOf(bk)].readStatus == false) {
+                         myLibrary[myLibrary.indexOf(bk)].readStatus = true;
+                         bookStatus.textContent = 'Finished';
+                         header.style.backgroundColor = '#6ee7b7';
+                         body.style.backgroundColor = '#a7f3d0';
+                    } else {
+                         myLibrary[myLibrary.indexOf(bk)].readStatus = false;
+                         bookStatus.textContent = 'Not Finished';
+                         header.style.backgroundColor = '#fca5a5';
+                         body.style.backgroundColor = '#fecaca';
+                    };
+                    return;
+               }
+          })
+     })
+     
      remove.addEventListener('click', function() {
           removeBook(remove);
           remove.parentNode.parentNode.remove();
